@@ -5,6 +5,7 @@ import Testimonials from "./Testimonials";
 import About from "./About";
 
 function Home() {
+    
     return (
         <div className="home">
         <Hero />

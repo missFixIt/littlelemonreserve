@@ -1,6 +1,6 @@
 function Testimonials() {
-    return <div className="testimonials">
-        <h1>This is the Testimonials section</h1>
-</div>
+            return (<article className="testimonials">
+                        <h1>This is the Testimonials section</h1>
+                    </article>)
 };
 export default Testimonials;

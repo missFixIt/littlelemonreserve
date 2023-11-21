@@ -3,9 +3,6 @@
   margin: 0;
   padding: 0;
 }
-
-
-
 .header {
   background-color: #ffffff;
   display: flex;
@@ -13,8 +10,16 @@
   align-items: center;
   min-height: 10vh;
   max-height: fit-content;
+  z-index: 1001;
 }
+.nav-item {
+  margin: 10px;
+  text-decoration: none;
+  color: #495E57;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 
+}
 .logo {
  max-height: 80px;
 }
@@ -50,7 +55,7 @@
   color:#F4CE14;
 }
 .hero img{
-  max-width:15em;
+  max-width:15rem;
   border-radius: 16px;
   
 }
@@ -65,14 +70,10 @@
   margin: 10px 0px;
   cursor: pointer;
 }
-
-
-
 .highlights {
   background-color: white;
   flex: 1 1 auto;
 }
-
 .testimonials {
   flex: 1 1 auto;
   background-color: lightgrey;
@@ -81,8 +82,6 @@
   flex: 1 1 auto;
   background-color: #F4CE14;
 }
-
-
 .footer {
   background-color: #495E57;
 }
@@ -90,8 +89,6 @@
   font-size: small;
   color: white;
 }
-
-
 .booking {
   display: flex;
   flex-direction: column;
@@ -114,26 +111,41 @@
     justify-content: space-between;
     height:100vh; 
     text-align: center;
-    background-color: #F4CE14;
+    /* background-color: #F4CE14; */
+  }
+  .header{
+    /* this doesn't work yet 
+    position:sticky;*/
+  }
+  .hamburger-bar {
+    height: 5px;
+    margin: 2px;
+    width: 40px;
+    background-color:black;
   }
   .nav{
     display: flex;
     flex-direction: column;
-    height: max-content;
     
   }
-  /*add some code here to make into a hamburger menu*/
   .nav-item {
-    margin: 10px;
-    text-decoration: none;
-    color: #495E57;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
+    display: none;
   }
+  .nav .nav-item.open {
+    display: flex;
+    flex-direction: column;
+  
+    width: 100%;
+    background-color: #2ae4a6;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 25;
+  } 
+
   .hero div:nth-child(2) {
   flex: 1 1 auto;
   text-align: center;
-  position: static;  
+  position: static;
 }
 }
 
@@ -144,7 +156,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height:100vh; 
+    height:100vh;
     text-align: center;
     background-color: #F4CE14;
   }
@@ -153,11 +165,5 @@
     flex-flow: row wrap;
     justify-content: space-around;
   }
-  .nav-item {
-    margin: 10px;
-    text-decoration: none;
-    color: #495E57;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-  }
 }
+

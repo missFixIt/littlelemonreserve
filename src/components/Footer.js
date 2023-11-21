@@ -2,7 +2,7 @@ import logo from "../logo.svg";
 import { Link } from "react-router-dom";
 function Footer() {
     return (
-        <div className="footer">
+        <footer className="footer">
             <img src={logo} alt="the Little Lemon logo" />
             
         <nav className="footer-nav">
@@ -13,7 +13,7 @@ function Footer() {
             <Link to="/order" className="nav-item">Order Online</Link>
             <Link to="/login" className="nav-item">Login</Link>
             </nav>
-        </div>
+        </footer>
     )
 
 };

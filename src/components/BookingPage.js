@@ -1,13 +1,15 @@
 import BookingForm from "./BookingForm";
+import { useState } from 'react';
+function BookingPage(props) {
 
-function BookingPage() {
-    
+    const dropDownTimes = props.times.map((t) => <option>{t}</option>);
     return (
         
-        <div className="booking">
+        <article className="booking">
             <h1>Book a table with us!</h1>
-            <BookingForm />
-        </div>
+            {/* trying to do children props here  */}
+            <BookingForm title={props.greeting}times={dropDownTimes} />
+        </article>
         
         
         )

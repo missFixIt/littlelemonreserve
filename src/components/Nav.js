@@ -1,12 +1,8 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import { useState } from 'react';
-import Home from './Home';
-import About from './About';
-import Menu from './Menu';
-import BookingPage from './BookingPage';
-import Login from './Login';
+import hamburgerIcon from '../images/icon_hamburger_menu.svg';
 
-const Nav = () => {
+function Nav (){
 
         const [menuOpen, setMenuOpen] = useState(false);
         const toggleMenu = () => {
@@ -16,9 +12,7 @@ const Nav = () => {
         return (
                <nav className={`nav ${menuOpen ? "open" : ""}`}>
                         <div className='hamburger-menu' onClick={toggleMenu}>
-                        <div className='hamburger-bar'></div>
-                        <div className='hamburger-bar'></div>
-                        <div className='hamburger-bar'></div>
+                        <img src={hamburgerIcon} alt="open menu icon"/>
                         </div>
                 <Link to="/" className={`nav-item ${menuOpen ? "open" : ""}`}>Home</Link>
                 <Link to="/about" className={`nav-item ${menuOpen ? "open" : ""}`}>About</Link>

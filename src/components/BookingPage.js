@@ -1,18 +1,17 @@
 import BookingForm from "./BookingForm";
-import { useState } from 'react';
-function BookingPage(props) {
 
-    const dropDownTimes = props.times.map((t) => <option>{t}</option>);
+
+
+function BookingPage(props) {
+  
     return (
-        
-        <article className="booking">
-            <h1>Book a table with us!</h1>
-            {/* trying to do children props here  */}
-            <BookingForm title={props.greeting}times={dropDownTimes} />
-        </article>
-        
-        
-        )
-}
+    <section className="booking">
+            <h2>Book a table with us</h2>
+            <p>First, choose a date, time, and number in your party. We'll get your contact info on the next page.</p>
+        <BookingForm availableTimes={props.availableTimes} dispatch={props.dispatch} SubmitForm={props.SubmitForm} />
+            {/* ///gotta be a better way to pass these children props... */}
+    </section>
+    );
+};
 
 export default BookingPage;

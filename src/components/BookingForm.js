@@ -1,43 +1,24 @@
-//import React from 'react';
 import { useState } from 'react';
 
-
-
 function BookingForm(props) {
-    const today = new Date();
-    const formattedDate = today.toISOString();
-    const todaysDate = formattedDate.slice(0, 10);
-    // const todaysDate = today.toDateString("en", {
-    //     year: "numeric",
-    //     month: "2-digit",
-    //     day: "2-digit",
-        
-    // });
-    // // const formattedDate = () => {
-        
-    // //     return ({ todaysDate.year } + "-" + { todaysDate.month } + "-" + {todaysDate.day} )
-    // // };
-    //console.log({ todaysDate });
-   
-    
-    
-    const [name, setName] = useState("");
-    const [date, setDate] = useState({ todaysDate });
-    const [time, setTime] = useState();
-    const [guests, setGuests] = useState();
+    const today = new Date().toISOString('ISO', { timeZone: 'America/Chicago' }).split('T')[0];
+    const [date, setDate] = useState(today);
+    const [time, setTime] = useState("");
+    const [guests, setGuests] = useState("");
     const [occasion, setOccasion] = useState("");
 
     const handleSubmit = (e) => {
-            e.preventDefault();
-        alert("Booked!");
+        e.preventDefault();
+        props.SubmitForm(e);
     };
-
-
+    const handleDateChange = (e) => {
+        setDate(e);
+        props.dispatch(e);
+    }
     return (
-        <>
-            <h1>{props.title}</h1>
+    
             <form onSubmit={handleSubmit}>
-              
+{/*               
                 <label htmlFor='name'>Name:</label>
              
                 <input
@@ -45,24 +26,34 @@ function BookingForm(props) {
                         type='text'
                         placeholder="Name"
                         name='name'
-                        value={name}
+                        // value={name}
                         onChange={(e) => setName(e.target.value)}
-                    />
-             
-                    <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" value={date} onChange={(e) => setDate(e.target.value)} />
-                 
-                    <label htmlFor="res-time">Choose time</label>
+                    /> */}
+            
+                    <label htmlFor="res-date">Choose date:</label>
+            <input
+                type="date"
+                min={today}
+                id="res-date"
+                value={date}
+                onChange={(e) => {
+                        handleDateChange(e.target.value)
+                        }
+                    }
+                required />
+           
+                    <label htmlFor="res-time">Choose time:</label>
                 <select
                     id="res-time"
-                    name='time'
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 >
-                 {props.times}
+                {props.availableTimes.availableTimes.map(availableTimes =>{
+                    return <option key={availableTimes}>{availableTimes}</option>
+                 })}
                 </select>
-                
-                    <label htmlFor="guests">Number of guests</label>
+           
+                    <label htmlFor="guests">Number of guests:</label>
                 <input
                     type="number"
                     placeholder="1"
@@ -70,9 +61,11 @@ function BookingForm(props) {
                     max="10"
                     id="guests"
                     value={guests}
-                    onChange={(e) => setGuests(e.target.value)} />
-               
-                    <label htmlFor="occasion">Occasion</label>
+                    onChange={(e) => setGuests(e.target.value)}
+                    required
+                />
+      
+                    <label htmlFor="occasion">Occasion:</label>
                 <select
                     id="occasion"
                     value={occasion}
@@ -83,10 +76,10 @@ function BookingForm(props) {
                         <option>Just plain hungry</option>
                     </select>
                    
-                    <input type="submit" value="Make Your reservation" />
-                
+                    
+           
+            <input type="submit" value="Make Your reservation" />
             </form>
-            </>
         );
     };
 

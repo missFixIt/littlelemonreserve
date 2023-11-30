@@ -37,12 +37,13 @@
   display: flex;
   justify-content:space-between;
   flex-flow: row wrap;
+  
 }
 .hero div {
   margin:10px;
   text-align: left;
   flex: 2 1 35%;
-  
+  padding: 3rem 0 0 3rem;
 }
 .hero div:nth-child(2) {
   flex: 1 1 auto;

@@ -1,6 +1,7 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import BookingPage from "./BookingPage";
 import {useReducer} from 'react';
+import BookingForm from "./BookingForm";
 
 function Main() {
    
@@ -62,11 +63,20 @@ function Main() {
     return (
         <main>
             <Routes>
-                <Route path='/' element={
-                    <BookingPage availableTimes={state} dispatch={dispatch} SubmitForm={SubmitForm}/>
+            <Route path='/' element={
+                    <BookingPage>
+                        <BookingForm availableTimes={state} dispatch={dispatch} SubmitForm={SubmitForm}/>
+                    </BookingPage>
                 }
                     ///gotta be a better way to pass these children props...
                 />
+
+
+                {/* <Route path='/' element={
+                    <BookingPage availableTimes={state} dispatch={dispatch} SubmitForm={SubmitForm}/>
+                }
+                    ///gotta be a better way to pass these children props...
+                /> */}
                 {/* <Route path='/confirmed' element={
                     <ConfirmedBooking />
                 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 function BookingForm(props) {
+    ///I should try to put all of this state into the reducer function
     const today = new Date().toISOString('ISO', { timeZone: 'America/Chicago' }).split('T')[0];
     const [date, setDate] = useState(today);
     const [time, setTime] = useState("");
@@ -32,6 +33,7 @@ function BookingForm(props) {
             
                     <label htmlFor="res-date">Choose date:</label>
             <input
+                aria-label='select date for reservation'  
                 type="date"
                 min={today}
                 id="res-date"
@@ -43,18 +45,21 @@ function BookingForm(props) {
                 required />
            
                     <label htmlFor="res-time">Choose time:</label>
-                <select
-                    id="res-time"
+            <select
+                aria-label='select time for reservation'
+                id="res-time"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 >
                 {props.availableTimes.availableTimes.map(availableTimes =>{
                     return <option key={availableTimes}>{availableTimes}</option>
                  })}
-                </select>
+            </select>
            
                     <label htmlFor="guests">Number of guests:</label>
-                <input
+            <input  
+                    style={{ width: "40px" }}
+                    aria-label='select number of guests for reservation'  
                     type="number"
                     placeholder="1"
                     min="1"
@@ -67,6 +72,7 @@ function BookingForm(props) {
       
                     <label htmlFor="occasion">Occasion:</label>
                 <select
+                    aria-label='select the occasion for reservation'    
                     id="occasion"
                     value={occasion}
                     onChange={(e)=>setOccasion(e.target.value)}>
@@ -78,9 +84,12 @@ function BookingForm(props) {
                    
                     
            
-            <input type="submit" value="Make Your reservation" />
+            <input disabled={!time&&!guests&&!occasion } type="submit" value="Make Your reservation" />
             </form>
         );
     };
 
 export default BookingForm;
+
+
+//need to add validation and aria/accesibility options

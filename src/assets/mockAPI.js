@@ -1,6 +1,4 @@
-//from https://drive.google.com/file/d/1PMLIeT_CGv6oGL7WoXa-ubgcSspRfyBL/view
-
-
+// I got this from https://drive.google.com/file/d/1PMLIeT_CGv6oGL7WoXa-ubgcSspRfyBL/view since the link to the API from Coursera was a 404
 
 const availableTimesByDate = {
   //I should change this to instead of the month and year, just the day of the month. then it would work into the future if i host it online
@@ -56,4 +54,4 @@ const availableTimesByDate = {
     });
   };
 
-  export{fetchAPI,submitAPI}
+export { fetchAPI, submitAPI };

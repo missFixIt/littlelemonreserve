@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 function Hero() {
     return (
         <article className="hero">
+           
             <div>
             <h1>Little Lemon</h1>
             <h2>Chicago</h2>

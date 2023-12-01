@@ -58,7 +58,7 @@ function BookingForm(props) {
            
                     <label htmlFor="guests">Number of guests:</label>
             <input  
-                    style={{ width: "40px" }}
+                    style={{ width: "40px", margin: "auto", }}
                     aria-label='select number of guests for reservation'  
                     type="number"
                     placeholder="1"

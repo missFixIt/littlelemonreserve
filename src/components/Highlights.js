@@ -1,26 +1,14 @@
-import greeksaladphoto from '../images/greek salad.jpg';
-
-function FeaturedItemCard({image, price, dish, dishdescription }) {
-    return (
-        <div
-            style={{width:"200px", height:"400px", backgroundColor:"red"}}
-        
-        >
-            <img src={image} width="200px" />
-            <h3>{dish}</h3>
-            <h4>{ price}</h4>
-            <p>{dishdescription}</p>
-        </div>
-    )
-};
-
-
-
+import food_items from '../assets/food_items';
+import FeaturedItemCard from './FeaturedItemCard';
 
 function Highlights() {
-    return (
-        <FeaturedItemCard dishdescription={"Lettuce, tomato, feta, Greek olives, red onion, pepperoncini and our signature dressing."} image={greeksaladphoto} price={"$12.99"} dish={"Greek Salad"}/>
-    )
-
+      return (
+        <article className='highlights'>
+                  <div><h1>This Week's Specials</h1></div>
+                  <div className='featured-items'>
+                      {food_items.map((item) => <FeaturedItemCard key={item.id} image={item.image} description={item.description} dish={item.dish} price={item.price} />)} 
+                    </div>
+          </article>
+      );
 };
 export default Highlights;

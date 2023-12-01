@@ -2,7 +2,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import BookingPage from "./BookingPage";
 import {useReducer} from 'react';
 import BookingForm from "./BookingForm";
-// import { fetchAPI, submitAPI } from "../assets/mockAPI";
+
 ///note to my peer reviewers. I named this component "Reservations" instead of "Main" like they mentioned doing in the course. It seemed to be more logical for the way my site is set up.
 function Reservations() {
    
@@ -10,7 +10,6 @@ function Reservations() {
         var m = 2 ** 35 - 31;
         var a = 185852;
         var s = seed % m;
-        console.log("seedRandom just ran");
         return function () {
             return (s = s * a % m) / m;
         }

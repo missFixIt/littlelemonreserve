@@ -87,6 +87,8 @@ a.nav-item.open:hover{
   justify-content: space-evenly;
 }
 .featured-item-card {
+  display: flex;
+  flex-direction: column;
   width: 15rem;
   justify-content:space-between;
   padding: 1rem;

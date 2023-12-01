@@ -14,14 +14,14 @@ const testimonial_objects = [
         id: 2,
         name: "Dick Van Dyke",
         image: dick,
-        quote: "...rubbed with garlic...",
+        quote: "My fave!",
         description:"Grilled bread rubbed with garlic, olive oil and salt, topped with fresh chopped tomatoes and herbs. My fave."
     },
     {
         id: 3,
         name: "Harry Belafonte",
         image: harry,
-        quote: "...delicious...moist...",
+        quote: "...delicious...",
         description:"Light, fluffy, and deliciously tangy, with two layers of moist lemon-flavored cake coated in a rich lemon-flavored cream cheese frosting. What more can I say?"
     }
 ]
